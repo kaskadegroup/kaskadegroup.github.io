@@ -1,15 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Box Example</title>
+    <title>Support Ticket Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body>
-    <form action="/submit" method="post">
-        <label for="textbox">Enter your text:</label><br>
-        <input type="text" id="textbox" name="textbox"><br>
-        <input type="submit" value="Submit">
-    </form>
+    <body>
+    <header>
+        <h1>Support Ticket Submission</h1>
+    </header>
+    <div class="container">
+        <form action="#" method="post" id="ticketForm">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="6" required></textarea>
+
+            <input type="submit" value="Submit Ticket">
+        </form>
+        <div id="confirmation" style="display: none;">
+            <p>Thank you for submitting your support ticket!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var subject = document.getElementById('subject').value;
+            var description = document.getElementById('description').value;
+
+            // Here, you can handle the form submission, for example, by sending the data to a server using AJAX
+
+            // For this example, we'll just show a confirmation message
+            document.getElementById('ticketForm').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
